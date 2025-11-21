@@ -1,0 +1,72 @@
+package com.mycompany.quizgame;
+import java.util.Scanner;
+
+public class QuizTest {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        String[] questions = {
+            "1. Who is known as the father of the computer?",
+            "2. Which is the brain of the computer?",
+            "3. Which company created the Windows operating system ?",
+            "4. In which year did Bangladesh gain independence?",
+            "5. Who is the national poet of Bangladesh?",
+            "6. What is the national flower of Bangladesh?",
+            "7. What is the largest continent in the world?",
+            "8. What is the highest mountain in the world ?",
+            "9. What is the main gas that makes up the Sun ?",
+            "10.How many bones are there in the human body ?"};
+
+        String[][] options = {
+            {"A.Charles Babbage","B.Alan Turing","C.Bill Gates","D.Steve Jobs"},
+            {"A.Monitor","B.Hard Disk","C.Keyboard","D.CPU"},
+            {"A.Apple","B.Microsoft","C.Google","D.IBM"},
+            {"A.1952","B.1972","C.1971","D.1975"},
+            {"A.Rabindranath Tagore","B.Kazi Nazrul Islam","C.Jasimuddin","D.Michael Madhusudan Dutt"},
+            {"A.Rose","B.Jesmine","C.Sunflower","D.Water Lily (Shapla)"},
+            {"A.Africa","B.Europe","C.Asia","D.Australia"},
+            {"A.Mount Everest","B.K2","C.Kangchenjunga","D.Lhotse"},
+            {"A.Oxygen","B.Nitrogen","C.Hydrogen","D.Carbon"},
+            {"A.406","B.306","C.106","D.206"}
+        };
+        
+
+        char[] answers = {'A', 'D', 'B', 'C', 'B', 'D', 'C','A','C','D' };
+
+        int score = 0;
+
+        System.out.println("        High School General Knowledge Quiz\n");
+
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println(questions[i]);
+
+            for (String option : options[i]) {
+                System.out.println(option);
+            }
+
+            System.out.print("Your answer (A/B/C/D): ");
+            char userAnswer = Character.toUpperCase(input.next().charAt(0));
+
+            if (userAnswer == answers[i]) {
+                score++;
+            }
+
+            System.out.println();
+        }
+
+        System.out.println("         Quiz Finished\n");
+        System.out.println("Your Score: " + score + " out of " + questions.length);
+
+        if (score == questions.length) {
+            System.out.println("Excellent! Perfect Score!");
+        } else if (score >= 3) {
+            System.out.println("Good job! You passed.");
+        } else {
+            System.out.println("Keep practicing!");
+        }
+
+        input.close();
+    }
+}
+
